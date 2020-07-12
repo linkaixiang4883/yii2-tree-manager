@@ -1,6 +1,28 @@
 Change Log: `yii2-tree-manager`
 ===============================
 
+## Version 1.1.3
+
+**Date:** _under development_
+
+- (bug #259): Correct icons list display based on `iconEditSettings['show']`.
+- (enh #258): Enhanced BS4 custom checkbox and radio styling for toggle inputs.
+- (enh #257): Enhance search close icon styling.
+- (enh #255): Prevent double encoding of names.
+- (enh #252): Activate open collective.
+- (bug #253): Correct TreeSecurity parsing of icons list.
+- (enh #251): Rename `_iconPrefix` to `iconPrefix` and make it public.
+- (bug #247): Correct migration error.
+
+## Version 1.1.2
+
+**Date:** 13-Mar-2019
+
+- (enh #244): Correct hidden css to use `BS_HIDE` within `bsCssMap`.
+- (enh #240): Rename events triggered via jquery to start with `treeview:`.
+- (enh #239): Allow CSS class to hide elements to be configurable (for BS 3.x / 4.x). New property `hideCssClass`.
+- (enh #238): Add Chinese Translations.
+
 ## Version 1.1.1
 
 **Date:** 29-Nov-2018

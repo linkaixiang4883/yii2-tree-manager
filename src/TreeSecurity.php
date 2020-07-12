@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2015 - 2018
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2015 - 2019
  * @package   yii2-tree-manager
- * @version   1.1.1
+ * @version   1.1.3
  */
 
 namespace kartik\tree;
@@ -37,6 +37,7 @@ class TreeSecurity
         $nodeTitles = static::getNodeTitles($data);
         $defaults = [
             'modelClass' => '',
+            'hideCssClass' => '',
             'defaultBtnCss' => '',
             'formAction' => '',
             'currUrl' => '',
@@ -56,13 +57,21 @@ class TreeSecurity
             'nodeViewButtonLabels' => [],
             'nodeViewParams' => '',
             'icons' => [],
+            'iconsListShow' => 'text',
             'iconsList' => [],
             'breadcrumbs' => [],
         ];
         $out = static::getParsedData($defaults, $data, function ($type, $key, $value) {
             if ($type === 'array' && $key === 'iconsList' && is_array($value)) {
-                $out = isset($value[0]) ? $value[0] : '';
-                return count($value) === 1 && ($out === 'none' || $out === 'text') ? $out : array_values($value);
+                $new = [];
+                foreach ($value as $k => $v) {
+                    if ($k === '0' || $k === 0) {
+                        $new[''] = $v;
+                    } else {
+                        $new[$k] = $v;
+                    }
+                }
+                return $new;
             }
             return $value;
         });
